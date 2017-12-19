@@ -1,1 +1,31 @@
 @charset "UTF-8";
+
+body {
+background-image: url("../images/marine-bg.jpg");
+}
+
+.container{
+  background-color: #B0E0E6;
+  opacity: 0.85;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Berkshire Swash', cursive;
+}
+
+#header{
+  margin-top: 1em;
+  padding-top: 1.5em;
+}
+
+hr{
+  background-color: white;
+}
+
+#question {
+  height: 450px;
+}
+
+footer{
+  height: 50px;
+}
