@@ -12,9 +12,12 @@ background-image: url("../images/marine-bg.jpg");
 h1, h2, h3, h4, h5, h6 {
 font-family: 'Berkshire Swash', cursive;
 }
+.mySlides{
+  height: 400px;
+  padding-top: 1em;
+}
 
 #header{
-  margin-top: 1em;
   padding-top: 1.5em;
 }
 
@@ -22,8 +25,16 @@ hr{
   background-color: white;
 }
 
-#question {
-  height: 450px;
+.leftButton{
+  width: 40px;
+  float: left;
+  margin-top: 20%;
+}
+
+.rightButton{
+  width: 40px;
+  float: right;
+  margin-top: 20%;
 }
 
 footer{

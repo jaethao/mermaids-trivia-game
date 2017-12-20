@@ -4,6 +4,7 @@
 <head>
   <title>Mermaid Trivia</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--Css style sheets-->
   <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -16,7 +17,18 @@
     <!--header-->
     <h1 class="text-center" id="header">Mermaid Trivia</h1>
     <hr>
-<div id="question">
+<div id="questions">
+  <button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
+  
+  <div id="question1"><h3 class="text-center mySlides">One of the earliest mermaid legends come from where?</h3></div>
+  <div id="question2"><h3 class="text-center mySlides">What coffee shop/brand uses a mermaid as their logo?</h3></div>
+  <div id="question3"><h3 class="text-center mySlides">Sailors once mistook what animal as a mermaid?</h3></div>
+  <div id="question4"><h3 class="text-center mySlides">In myths and ancient time, mermaids were called?</h3></div>
+  <div id="question5"><h3 class="text-center mySlides">What power do mermaids not posses?</h3></div>
+  <div id="question6"><h3 class="text-center mySlides">Aquamarine, the gemstone is believed to be from a mermaid's __?</h3></div>
+  <div id="question7"><h3 class="text-center mySlides">According to ancient folklores, a kiss from a mermaid gives you the ability to __?</h3></div>
+  <div id="question8"><h3 class="text-center mySlides">The color of a mermaid's tail depicts her __?</h3></div>
 </div>
 <!--timer-->
     <h2 id="timer" class="text-center">Time: 0</h2>
