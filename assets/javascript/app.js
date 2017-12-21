@@ -1,40 +1,40 @@
 $(document).ready(function(){
 
   var triviaQuestions = [{
-  	question: "In what year was Pixar founded?",
-  	answerList: ["1979", "1986", "1995", "2000"],
-  	answer: 1
-  },{
-  	question: "Which tech mogul provided funding and became a co-founder of Pixar?",
-  	answerList: ["Steve Jobs", "Bill Gates", "Peter Thiel", "Mark Zuckerberg"],
+  	question: "One of the earliest mermaid legends came from?",
+  	answerList: ["Syria", "Egypt", "Iceland", "China"],
   	answer: 0
   },{
-  	question: "What was Pixar's first feature-length film that was released in 1995?",
-  	answerList: ["Toy Story", "A Bug's Life", "Monster's Inc", "Finding Nemo"],
-  	answer: 0
-  },{
-  	question: "Who was the first Pixar character added to the Disney Princess line-up?",
-  	answerList: ["Jessie", "Repunzel", "Merida", "Elsa"],
+  	question: "What coffee shop/brand uses a mermaid as their logo?",
+  	answerList: ["Caribou", "Birch", "Starbucks", "Dunn Brothers"],
   	answer: 2
   },{
-  	question: "What's the name of Pixar's first short film, also known as their mascot?",
-  	answerList: ["Lampo", "Junior", "Pixie", "Luxo Jr."],
+  	question: "Sailors once mistook what animal as mermaids?",
+  	answerList: ["Whale", "Shark", "Dolphin", "Manatee"],
   	answer: 3
   },{
-  	question: "How many sequels does Pixar currently have released? (as of August 2016)",
-  	answerList: ["5", "3", "6", "7"],
-  	answer: 0
-  },{
-  	question: "Which film won Pixar's first Academy Award for Best Animated Feature?",
-  	answerList: ["Toy Story", "Finding Nemo", "Up", "Wall-E"],
+  	question: "In ancient time, mermaids were known as?",
+  	answerList: ["Sea Cows", "Sirens", "Sea Monsters", "Water Angels"],
   	answer: 1
   },{
-  	question: "Who directed Pixar's first three feature films?",
-  	answerList: ["Peter Docter", "Brad Bird", "John Lasseter", "Peter Sohn"],
+  	question: "What power does the mermaid not possess?",
+  	answerList: ["Telepathy", "Immortality", "X-ray vision", "Hypnosis"],
   	answer: 2
+  },{
+  	question: "Auquamarine, the gemstone is believed to be from mermaids __?",
+  	answerList: ["Tears", "Songs", "Eyes", "Scales"],
+  	answer: 0
+  },{
+  	question: "According to ancient folklores, a kiss from a mermaid gives you the ability to __?",
+  	answerList: ["Swim", "Sing", "Breathe underwater", "Read mind"],
+  	answer: 2
+  },{
+  	question: "The color of the mermaids tails depict her __?",
+  	answerList: ["Relationship Status", "Race", "Age", "Mood"],
+  	answer: 3
   }];
 
-  //var gifArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8'];
+
   var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
   var messages = {
   	correct: "Yes, that's right!",
@@ -58,6 +58,7 @@ $(document).ready(function(){
   	$('#correctAnswers').empty();
   	$('#incorrectAnswers').empty();
   	$('#unanswered').empty();
+    $('#images').empty();
   	currentQuestion = 0;
   	correctAnswer = 0;
   	incorrectAnswer = 0;
@@ -68,7 +69,7 @@ $(document).ready(function(){
   function newQuestion(){
   	$('#message').empty();
   	$('#correctedAnswer').empty();
-  	$('#gif').empty();
+  	$('#images').empty();
   	answered = true;
 
   	//sets up new questions & answerList
@@ -80,6 +81,7 @@ $(document).ready(function(){
   		choices.attr({'data-index': i });
   		choices.addClass('thisChoice');
   		$('.answerList').append(choices);
+      $('#images').empty();
   	}
   	countdown();
   	//clicking an answer will pause the time and setup answerPage
@@ -113,19 +115,20 @@ $(document).ready(function(){
   	$('.thisChoice').empty(); //Clears question page
   	$('.question').empty();
 
+
   	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
   	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-  	//$('#gif').html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');
+
   	//checks to see correct, incorrect, or unanswered
   	if((userSelect == rightAnswerIndex) && (answered == true)){
   		correctAnswer++;
   		$('#message').html(messages.correct);
-      $('#images').html('<img src="../images/wrong.jpg"/>');
+      $('#images').html('<img src="assets/images/correct.jpg"/>');
   	} else if((userSelect != rightAnswerIndex) && (answered == true)){
   		incorrectAnswer++;
   		$('#message').html(messages.incorrect);
   		$('#correctedAnswer').html('<h4>The correct answer was: ' + rightAnswerText + '</h4>');
-      $('#images').html('<img src="../images/wrong.jpg"/>');
+      $('#images').html('<img src="assets/images/wrong.jpg"/>');
   	} else{
   		unanswered++;
   		$('#message').html(messages.endTime);
@@ -139,13 +142,13 @@ $(document).ready(function(){
   		currentQuestion++;
   		setTimeout(newQuestion, 5000);
   	}
-  }
+  };
 
   function scoreboard(){
   	$('#timeLeft').empty();
   	$('#message').empty();
   	$('#correctedAnswer').empty();
-  	$('#gif').empty();
+  	$('#images').empty();
 
   	$('#finalMessage').html(messages.finished);
   	$('#correctAnswers').html("<h4>Correct Answers:" + correctAnswer + "</h4>");
