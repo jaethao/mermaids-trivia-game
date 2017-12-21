@@ -13,31 +13,40 @@
 </head>
 <body>
   <div class="container">
-
     <!--header-->
     <h1 class="text-center" id="header">Mermaid Trivia</h1>
-    <hr>
-<div id="questions">
-  <button class="leftButton" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="rightButton" onclick="plusDivs(1)">&#10095;</button>
-  
-  <div id="question1"><h3 class="text-center mySlides">One of the earliest mermaid legends come from where?</h3></div>
-  <div id="question2"><h3 class="text-center mySlides">What coffee shop/brand uses a mermaid as their logo?</h3></div>
-  <div id="question3"><h3 class="text-center mySlides">Sailors once mistook what animal as a mermaid?</h3></div>
-  <div id="question4"><h3 class="text-center mySlides">In myths and ancient time, mermaids were called?</h3></div>
-  <div id="question5"><h3 class="text-center mySlides">What power do mermaids not posses?</h3></div>
-  <div id="question6"><h3 class="text-center mySlides">Aquamarine, the gemstone is believed to be from a mermaid's __?</h3></div>
-  <div id="question7"><h3 class="text-center mySlides">According to ancient folklores, a kiss from a mermaid gives you the ability to __?</h3></div>
-  <div id="question8"><h3 class="text-center mySlides">The color of a mermaid's tail depicts her __?</h3></div>
-</div>
-<!--timer-->
-    <h2 id="timer" class="text-center">Time: 0</h2>
-    <hr>
+      <hr>
+      <h1 class="text-center" id="startBtn">Start</h1>
 
-    <footer>
-      <p class="text-center">Maiyer Thao 2017</p>
-    </footer>
+              <!-- Question page -->
+      <div class="questions text-center">
+              <div id="timeLeft"></div>
+              <h4 id="currentQuestion"></h4>
+              <br>
+              <div class="question"></div>
+              <br>
+              <h4 class="answerList"></h4>
+              <!-- Answer Page -->
+              <h4 id="message"></h4>
+              <br>
+              <div id="correctedAnswer"></div>
+              <!--<div id="gif"></div>-->
+              <div id="images"></div>
+              <!-- Scoreboard -->
+              <h3 id="finalMessage"></h3>
+  <br>
+              <div id="correctAnswers"></div>
+              <div id="incorrectAnswers"></div>
+              <div id="unanswered"></div>
+              <br>
+              <h3 id="startOverBtn"></h3>
+      </div>
+
   </div>
+
+  <footer>
+    <p class="text-center footer-text">Maiyer Thao 2017</p>
+  </footer>
 
 <!--javascript links-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

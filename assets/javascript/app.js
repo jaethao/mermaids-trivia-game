@@ -1,28 +1,161 @@
-//Global varibles
-//counter
-var correct = 0;
-var incorrect = 0;
-
 $(document).ready(function(){
 
-//slideshow
-  var slideIndex = 1;
-showDivs(slideIndex);
+  var triviaQuestions = [{
+  	question: "In what year was Pixar founded?",
+  	answerList: ["1979", "1986", "1995", "2000"],
+  	answer: 1
+  },{
+  	question: "Which tech mogul provided funding and became a co-founder of Pixar?",
+  	answerList: ["Steve Jobs", "Bill Gates", "Peter Thiel", "Mark Zuckerberg"],
+  	answer: 0
+  },{
+  	question: "What was Pixar's first feature-length film that was released in 1995?",
+  	answerList: ["Toy Story", "A Bug's Life", "Monster's Inc", "Finding Nemo"],
+  	answer: 0
+  },{
+  	question: "Who was the first Pixar character added to the Disney Princess line-up?",
+  	answerList: ["Jessie", "Repunzel", "Merida", "Elsa"],
+  	answer: 2
+  },{
+  	question: "What's the name of Pixar's first short film, also known as their mascot?",
+  	answerList: ["Lampo", "Junior", "Pixie", "Luxo Jr."],
+  	answer: 3
+  },{
+  	question: "How many sequels does Pixar currently have released? (as of August 2016)",
+  	answerList: ["5", "3", "6", "7"],
+  	answer: 0
+  },{
+  	question: "Which film won Pixar's first Academy Award for Best Animated Feature?",
+  	answerList: ["Toy Story", "Finding Nemo", "Up", "Wall-E"],
+  	answer: 1
+  },{
+  	question: "Who directed Pixar's first three feature films?",
+  	answerList: ["Peter Docter", "Brad Bird", "John Lasseter", "Peter Sohn"],
+  	answer: 2
+  }];
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
+  //var gifArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8'];
+  var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
+  var messages = {
+  	correct: "Yes, that's right!",
+  	incorrect: "No, that's not it.",
+  	endTime: "Out of time!",
+  	finished: "Alright! Let's see how well you did."
   }
-  x[slideIndex-1].style.display = "block";
-}
+
+  $('#startBtn').on('click', function(){
+  	$(this).hide();
+  	newGame();
+  });
+
+  $('#startOverBtn').on('click', function(){
+  	$(this).hide();
+  	newGame();
+  });
+
+  function newGame(){
+  	$('#finalMessage').empty();
+  	$('#correctAnswers').empty();
+  	$('#incorrectAnswers').empty();
+  	$('#unanswered').empty();
+  	currentQuestion = 0;
+  	correctAnswer = 0;
+  	incorrectAnswer = 0;
+  	unanswered = 0;
+  	newQuestion();
+  }
+
+  function newQuestion(){
+  	$('#message').empty();
+  	$('#correctedAnswer').empty();
+  	$('#gif').empty();
+  	answered = true;
+
+  	//sets up new questions & answerList
+  	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
+  	$('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
+  	for(var i = 0; i < 4; i++){
+  		var choices = $('<div>');
+  		choices.text(triviaQuestions[currentQuestion].answerList[i]);
+  		choices.attr({'data-index': i });
+  		choices.addClass('thisChoice');
+  		$('.answerList').append(choices);
+  	}
+  	countdown();
+  	//clicking an answer will pause the time and setup answerPage
+  	$('.thisChoice').on('click',function(){
+  		userSelect = $(this).data('index');
+  		clearInterval(time);
+  		answerPage();
+  	});
+  }
+
+  function countdown(){
+  	seconds = 15;
+  	$('#timeLeft').html('<h2>Time Remaining: ' + seconds + '</h2>');
+  	answered = true;
+  	//sets timer to go down
+  	time = setInterval(showCountdown, 1000);
+  }
+
+  function showCountdown(){
+  	seconds--;
+  	$('#timeLeft').html('<h2>Time Remaining: ' + seconds + '</h2>');
+  	if(seconds < 1){
+  		clearInterval(time);
+  		answered = false;
+  		answerPage();
+  	}
+  }
+
+  function answerPage(){
+  	$('#currentQuestion').empty();
+  	$('.thisChoice').empty(); //Clears question page
+  	$('.question').empty();
+
+  	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
+  	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
+  	//$('#gif').html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');
+  	//checks to see correct, incorrect, or unanswered
+  	if((userSelect == rightAnswerIndex) && (answered == true)){
+  		correctAnswer++;
+  		$('#message').html(messages.correct);
+      $('#images').html('<img src="../images/wrong.jpg"/>');
+  	} else if((userSelect != rightAnswerIndex) && (answered == true)){
+  		incorrectAnswer++;
+  		$('#message').html(messages.incorrect);
+  		$('#correctedAnswer').html('<h4>The correct answer was: ' + rightAnswerText + '</h4>');
+      $('#images').html('<img src="../images/wrong.jpg"/>');
+  	} else{
+  		unanswered++;
+  		$('#message').html(messages.endTime);
+  		$('#correctedAnswer').html('<h4>The correct answer was: ' + rightAnswerText + '</h4>');
+  		answered = true;
+  	}
+
+  	if(currentQuestion == (triviaQuestions.length-1)){
+  		setTimeout(scoreboard, 5000)
+  	} else{
+  		currentQuestion++;
+  		setTimeout(newQuestion, 5000);
+  	}
+  }
+
+  function scoreboard(){
+  	$('#timeLeft').empty();
+  	$('#message').empty();
+  	$('#correctedAnswer').empty();
+  	$('#gif').empty();
+
+  	$('#finalMessage').html(messages.finished);
+  	$('#correctAnswers').html("<h4>Correct Answers:" + correctAnswer + "</h4>");
+  	$('#incorrectAnswers').html("<h4>Incorrect Answers: " + incorrectAnswer + "</h4>");
+  	$('#unanswered').html("<h4>Unanswered:" + unanswered + "</h4>");
+  	$('#startOverBtn').addClass('reset');
+  	$('#startOverBtn').show();
+  	$('#startOverBtn').html('Start Over?');
+  }
+
 
 
 
