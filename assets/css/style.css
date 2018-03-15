@@ -1,51 +1,59 @@
 @charset "UTF-8";
 
 body {
-background-image: url("../images/marine-bg.jpg");
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+body:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+  z-index: -1;
+  background: url("../images/marine-bg.jpg") no-repeat fixed center;
 }
 
 h1, h2, h3 {
 font-family: 'Berkshire Swash', cursive;
+opacity: 1;
 }
 
-h1{
+h1 {
   font-size: 5em;
 }
 
-h4, h5, h6{
+h4, h5, h6 {
   font-family: sans-serif;
+  opacity: 1;
 }
 
-#header{
-  padding-top: 1em;
+#header {
+  padding-top: .5em;
 }
 
-hr{
-  background-color: black;
+#startBtn{
+  margin-top: 3em;
 }
 
-.container{
-  width: 75%;
-  height: 800px;
-  background-color: white;
-  opacity: 0.7;
+#startBtn:hover {
+color: Aqua;
 }
 
-
-.questions {
-  margin-top: 1.5em;
+#game {
+  height: 500px;
+  margin-top: 6em;
 }
-
- #startBtn{
-  margin-top: 150px;
- }
 
 
 footer {
   height: 75px;
-  background-color: #7FFFD4;
 }
 
 .footer-text{
-  padding-top: 25px;
+  padding-top: 10px;
 }

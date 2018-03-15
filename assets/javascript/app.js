@@ -35,7 +35,14 @@ $(document).ready(function(){
   }];
 
 
-  var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
+  var currentQuestion;
+  var correctAnswer;
+  var incorrectAnswer;
+  var unanswered;
+  var seconds;
+  var time;
+  var answered;
+  var userSelect;
   var messages = {
   	correct: "Yes, that's right!",
   	incorrect: "No, that's not it.",
@@ -73,7 +80,7 @@ $(document).ready(function(){
   	answered = true;
 
   	//sets up new questions & answerList
-  	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
+  	$('#currentQuestion').html('Question #'+(currentQuestion+1)+' of '+triviaQuestions.length);
   	$('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
   	for(var i = 0; i < 4; i++){
   		var choices = $('<div>');
