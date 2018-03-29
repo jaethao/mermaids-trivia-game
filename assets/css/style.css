@@ -35,6 +35,7 @@ h4, h5, h6 {
 
 #header {
   padding-top: .5em;
+  padding-bottom: .5em;
 }
 
 #startBtn{
@@ -58,9 +59,9 @@ color: Aqua;
 
 
 footer {
-  height: 100%;
+  height: 100px;
 }
 
-.footer-text{
-  padding-top: 10px;
+#footer-text {
+  padding-top: 1.5em;
 }
