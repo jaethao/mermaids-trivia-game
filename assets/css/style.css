@@ -38,7 +38,7 @@ h4, h5, h6 {
 }
 
 #startBtn{
-  margin-top: 3em;
+  padding-top: 3em;
 }
 
 #startBtn:hover {
@@ -47,13 +47,18 @@ color: Aqua;
 
 
 #game {
-  height: 500px;
-  margin-top: 6em;
+  height: 600px;
+  background-color: white;
+  border: 10px solid #00FFFF;
+}
+
+#game-content {
+  padding-top: 2.5em;
 }
 
 
 footer {
-  height: 75px;
+  height: 100%;
 }
 
 .footer-text{
