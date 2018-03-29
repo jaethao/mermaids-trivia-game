@@ -21,15 +21,15 @@ $(document).ready(function(){
   	answerList: ["Telepathy", "Immortality", "X-ray vision", "Hypnosis"],
   	answer: 2
   },{
-  	question: "Auquamarine, the gemstone is believed to be from mermaids __?",
+  	question: "Auquamarine, the gemstone is believed to be from mermaids?",
   	answerList: ["Tears", "Songs", "Eyes", "Scales"],
   	answer: 0
   },{
-  	question: "According to ancient folklores, a kiss from a mermaid gives you the ability to __?",
+  	question: "According to ancient folklores, a kiss from a mermaid gives you the ability to?",
   	answerList: ["Swim", "Sing", "Breathe underwater", "Read mind"],
   	answer: 2
   },{
-  	question: "The color of the mermaids tails depict her __?",
+  	question: "The color of the mermaids tails depict her?",
   	answerList: ["Relationship Status", "Race", "Age", "Mood"],
   	answer: 3
   }];

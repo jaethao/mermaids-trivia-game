@@ -39,12 +39,20 @@ h4, h5, h6 {
 }
 
 #startBtn{
-  padding-top: 3em;
+  padding-top: 2.75em;
 }
 
 #startBtn:hover {
 color: Aqua;
 }
+
+.answerList div:hover {
+color: Aqua;
+}
+
+#startOverBtn:hover {
+color: Aqua;
+} 
 
 
 #game {
