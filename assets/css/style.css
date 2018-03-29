@@ -15,7 +15,8 @@ body:before {
   height: 100%;
   opacity: .3;
   z-index: -1;
-  background: url("../images/marine-bg.jpg");
+  background: url("../images/marine-bg.jpg") fixed;
+  background-size: cover;
 }
 
 h1, h2, h3 {
@@ -43,6 +44,7 @@ h4, h5, h6 {
 #startBtn:hover {
 color: Aqua;
 }
+
 
 #game {
   height: 500px;
