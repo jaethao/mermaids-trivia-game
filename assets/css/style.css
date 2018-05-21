@@ -19,7 +19,7 @@ body:before {
   background-size: cover;
 }
 
-h1, h2, h3 {
+h1{
 font-family: 'Berkshire Swash', cursive;
 opacity: 1;
 }
@@ -28,7 +28,7 @@ h1 {
   font-size: 5em;
 }
 
-h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-family: sans-serif;
   opacity: 1;
 }
@@ -40,6 +40,7 @@ h4, h5, h6 {
 
 #startBtn{
   padding-top: 2.75em;
+  cursor: pointer;
 }
 
 #startBtn:hover {
@@ -48,11 +49,13 @@ color: Aqua;
 
 .answerList div:hover {
 color: Aqua;
+cursor: pointer;
 }
 
 #startOverBtn:hover {
 color: Aqua;
-} 
+cursor: pointer;
+}
 
 
 #game {
